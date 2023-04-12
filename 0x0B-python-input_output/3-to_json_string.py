@@ -1,29 +1,17 @@
 #!/usr/bin/python3
-to_json_string = __import__('3-to_json_string').to_json_string
+# 3-write_file.py
+# Brennan D Baraban <375@holbertonschool.com>
+"""Defines a file-writing function."""
 
-my_list = [1, 2, 3]
-s_my_list = to_json_string(my_list)
-print(s_my_list)
-print(type(s_my_list))
 
-my_dict = { 
-    'id': 12,
-    'name': "John",
-    'places': [ "San Francisco", "Tokyo" ],
-    'is_active': True,
-    'info': {
-        'age': 36,
-        'average': 3.14
-    }
-}
-s_my_dict = to_json_string(my_dict)
-print(s_my_dict)
-print(type(s_my_dict))
+def write_file(filename="", text=""):
+    """Write a string to a UTF8 text file.
 
-try:
-    my_set = { 132, 3 }
-    s_my_set = to_json_string(my_set)
-    print(s_my_set)
-    print(type(s_my_set))
-except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
+    Args:
+        filename (str): The name of the file to write.
+        text (str): The text to write to the file.
+    Returns:
+        The number of characters written.
+    """
+    with open(filename, "w", encoding="utf-8") as f:
+        return f.write(text)
